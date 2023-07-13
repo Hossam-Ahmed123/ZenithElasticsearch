@@ -1,0 +1,10 @@
+package com.elk.data;
+@Document(indexName = "lorem")
+public class LoremData {
+
+    @Id
+    private String id;
+    private String text;
+
+    // getters and setters
+}

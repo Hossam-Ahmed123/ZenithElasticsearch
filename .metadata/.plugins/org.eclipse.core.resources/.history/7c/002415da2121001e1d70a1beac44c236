@@ -1,0 +1,18 @@
+package com.elk.service;
+import org.springframework.stereotype.Service;
+
+@Service
+public class LoremDataService {
+
+    private final LoremDataRepository loremDataRepository;
+
+    public LoremDataService(LoremDataRepository loremDataRepository) {
+        this.loremDataRepository = loremDataRepository;
+    }
+
+    public void pushLoremData(String text) {
+        LoremData loremData = new LoremData();
+        loremData.setText(text);
+        loremDataRepository.save(loremData);
+    }
+}

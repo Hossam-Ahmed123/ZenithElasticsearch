@@ -1,0 +1,2 @@
+spring.data.elasticsearch.cluster-nodes=10.110.96.221:9200
+

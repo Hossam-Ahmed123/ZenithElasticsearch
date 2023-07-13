@@ -1,0 +1,8 @@
+package com.elk.repo;
+
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+
+import com.elk.data.LoremData;
+
+public interface LoremDataRepository extends ElasticsearchRepository<LoremData, String> {
+}

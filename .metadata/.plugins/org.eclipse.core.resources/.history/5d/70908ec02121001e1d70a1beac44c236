@@ -1,0 +1,4 @@
+package com.elk.repo;
+
+public interface LoremDataRepository extends ElasticsearchRepository<LoremData, String> {
+}

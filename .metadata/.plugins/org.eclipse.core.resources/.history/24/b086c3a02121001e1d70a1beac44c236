@@ -1,0 +1,29 @@
+package com.elk.service;
+
+
+import org.springframework.stereotype.Service;
+
+import com.elk.data.DataModel;
+
+import java.io.IOException;
+
+@Service
+public class ElasticsearchService {
+    private final RestHighLevelClient elasticsearchClient;
+
+    public ElasticsearchService(RestHighLevelClient elasticsearchClient) {
+        this.elasticsearchClient = elasticsearchClient;
+    }
+
+    public void pushDataToElasticsearch(String id, String data) throws IOException {
+        DataModel model = new DataModel();
+        model.setId(id);
+        model.setData(data);
+
+        IndexRequest indexRequest = new IndexRequest("your_index_name")
+                .source(JsonUtil.toJson(model), XContentType.JSON);
+
+        elasticsearchClient.index(indexRequest, RequestOptions.DEFAULT);
+    }
+}
+
